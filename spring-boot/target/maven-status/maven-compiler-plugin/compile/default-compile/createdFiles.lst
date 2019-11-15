@@ -1,6 +1,4 @@
 actuatorservice\Offer.class
-hello\HelloController.class
 actuatorservice\VoucherCode.class
-hello\Application.class
+actuatorservice\VoucherServiceApplication.class
 actuatorservice\Recipient.class
-actuatorservice\ActuatorServiceApplication.class
