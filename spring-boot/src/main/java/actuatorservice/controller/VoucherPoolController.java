@@ -26,9 +26,9 @@ public class VoucherPoolController {
 
     @GetMapping("vouchers")
     @ResponseBody
-    public Set<VoucherCode> getVoucherCodes(@RequestParam final String email) {
+    public Set<VoucherCode> getVoucherCodes(@RequestParam final String email, @RequestParam final boolean includeExpired) {
 
-        return voucherPoolService.getVoucherCodes(email);
+        return voucherPoolService.getVoucherCodes(email, includeExpired);
     }
 
     @PostMapping("vouchers/{id}/redeem")

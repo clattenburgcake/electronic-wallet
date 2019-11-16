@@ -1,0 +1,93 @@
+{
+	"info": {
+		"_postman_id": "a9c1d067-0898-4cb7-9ab5-bf8768e3b3e4",
+		"name": "Voucher Pool Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Generate Vouchers",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\n\t\"offerName\" : \"BOGOF\",\n\t\"expirationDate\" : \"2019-12-25\"\n\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/vouchers/generate",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vouchers",
+						"generate"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "application/json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Vouchers for Recipient",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/vouchers?email=mosalah@liverpool.com&includeExpired=true",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vouchers"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "mosalah@liverpool.com"
+						},
+						{
+							"key": "includeExpired",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Redeem Voucher",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/vouchers/158b4890-edab-4134-b3d2-ddbac492a01b/redeem",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vouchers",
+						"158b4890-edab-4134-b3d2-ddbac492a01b",
+						"redeem"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

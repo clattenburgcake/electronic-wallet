@@ -35,9 +35,16 @@ public class DefaultVoucherPoolService implements VoucherPoolService {
     }
 
     @Override
-    public Set<VoucherCode> getVoucherCodes(final String email) {
+    public Set<VoucherCode> getVoucherCodes(final String email, final boolean includeExpired) {
 
-        return voucherCodeDao.getVoucherCodes(email);
+        if (includeExpired) {
+
+            return voucherCodeDao.getAllVoucherCodes(email);
+
+        } else {
+
+            return voucherCodeDao.getValidVoucherCodes(email);
+        }
     }
 
     @Override

@@ -13,7 +13,7 @@ public interface VoucherPoolService {
 
     Optional<Offer> getOffer (final String offerName, final LocalDate expiryDate, final String email);
 
-    Set<VoucherCode> getVoucherCodes (final String email);
+    Set<VoucherCode> getVoucherCodes (final String email, final boolean includeExpired);
 
     void redeemVoucherCode (final String voucherCode);
 }

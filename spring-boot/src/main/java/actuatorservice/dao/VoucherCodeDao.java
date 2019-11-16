@@ -13,7 +13,9 @@ public interface VoucherCodeDao {
 
     Optional<Offer> getOffer (final String offerName, final LocalDate expiryDate, final String email);
 
-    Set<VoucherCode> getVoucherCodes (final String email);
+    Set<VoucherCode> getValidVoucherCodes(final String email);
+
+    Set<VoucherCode> getAllVoucherCodes(final String email);
 
     void redeemVoucherCode (final String voucherCode);
 }

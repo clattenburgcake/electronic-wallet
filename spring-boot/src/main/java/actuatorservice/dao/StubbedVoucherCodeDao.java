@@ -65,12 +65,20 @@ public class StubbedVoucherCodeDao implements VoucherCodeDao {
     }
 
     @Override
-    public Set<VoucherCode> getVoucherCodes(final String email) {
+    public Set<VoucherCode> getValidVoucherCodes(final String email) {
 
         return this.voucherCodes.stream()
                 .filter(vc -> vc.getRecipient().getEmail().equals(email))
                 .filter(vc -> vc.getExpiryDate().isAfter(LocalDate.now()))
                 .filter(vc -> !vc.getDateRedeemed().isPresent())
+                .collect(Collectors.toSet());
+    }
+
+    @Override
+    public Set<VoucherCode> getAllVoucherCodes(final String email) {
+
+        return this.voucherCodes.stream()
+                .filter(vc -> vc.getRecipient().getEmail().equals(email))
                 .collect(Collectors.toSet());
     }
 
