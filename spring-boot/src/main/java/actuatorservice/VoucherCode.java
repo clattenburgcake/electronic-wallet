@@ -1,6 +1,7 @@
 package actuatorservice;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 public class VoucherCode {
 
@@ -15,7 +16,6 @@ public class VoucherCode {
         this.offer = offer;
         this.expiryDate = expiryDate;
         this.randomCode = randomCode;
-
     }
 
     public Recipient getRecipient() {

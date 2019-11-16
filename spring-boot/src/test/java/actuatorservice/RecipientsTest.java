@@ -52,7 +52,7 @@ public class RecipientsTest {
     @Test
     public void shouldUnmarshallCorrectly() throws Exception {
 
-        final String json = readFileToString(new File("/home/a-lee/Dev/electronic-wallet/spring-boot/src/main/resources/recipients.json"),
+        final String json = readFileToString(new File("src/main/resources/recipients.json"),
                 defaultCharset());
 
         final Recipients expectedRecipients = OBJECT_MAPPER.readValue(json, Recipients.class);
