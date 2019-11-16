@@ -1,6 +1,7 @@
 package actuatorservice;
 
 import java.time.LocalDate;
+import java.util.Optional;
 import java.util.UUID;
 
 public class VoucherCode {
@@ -8,9 +9,10 @@ public class VoucherCode {
     private Recipient recipient;
     private Offer offer;
     private LocalDate expiryDate;
-    private long randomCode;
+    private String randomCode;
+    private LocalDate dateRedeemed;
 
-    public VoucherCode(long randomCode, Recipient recipient, Offer offer, LocalDate expiryDate) {
+    public VoucherCode(String randomCode, Recipient recipient, Offer offer, LocalDate expiryDate) {
 
         this.recipient = recipient;
         this.offer = offer;
@@ -30,7 +32,11 @@ public class VoucherCode {
         return this.expiryDate;
     }
 
-    public long getRandomCode() {
+    public String getRandomCode() {
         return this.randomCode;
+    }
+
+    public Optional<LocalDate> rgetDateRedeemed() {
+        return Optional.ofNullable(dateRedeemed);
     }
 }

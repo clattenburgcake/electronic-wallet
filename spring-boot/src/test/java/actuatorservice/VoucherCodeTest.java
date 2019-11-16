@@ -9,13 +9,13 @@ import java.time.LocalDate;
 
 public class VoucherCodeTest {
 
-    private static final VoucherCode VOUCHER_CODE = new VoucherCode(12345678, new Recipient("Kevin de Bruyne", "kevindebruyne@mancity.com"),
+    private static final VoucherCode VOUCHER_CODE = new VoucherCode("12345678", new Recipient("Kevin de Bruyne", "kevindebruyne@mancity.com"),
             new Offer("Kevin de Bruyne", 0.2d), LocalDate.of(2019, 11, 1));
 
     @Test
     public void gettersShouldReturnCorrectResults() {
 
-        final long randomCode = 12345678;
+        final String randomCode = "12345678";
         final String recipientName = "Kevin de Bruyne";
         final String email = "kevindebruyne@mancity.com";
 
