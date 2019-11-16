@@ -10,6 +10,7 @@ import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Component
 public class StubbedVoucherCodeDao implements VoucherCodeDao {
@@ -22,9 +23,9 @@ public class StubbedVoucherCodeDao implements VoucherCodeDao {
     public StubbedVoucherCodeDao() {
 
         // Dummy Recipient Data
-        this.recipients.add(new Recipient("Kevin de Bruyne","kevindebruyne@mancity.com" ));
-        this.recipients.add(new Recipient("Mo Salah","mosalah@liverpool.com" ));
-        this.recipients.add(new Recipient("Sadio Mane","sadiomane@liverpool.com" ));
+        this.recipients.add(new Recipient("Kevin de Bruyne", "kevindebruyne@mancity.com"));
+        this.recipients.add(new Recipient("Mo Salah", "mosalah@liverpool.com"));
+        this.recipients.add(new Recipient("Sadio Mane", "sadiomane@liverpool.com"));
 
         // Dummy Offer Data
         offers.add(new Offer("BOGOF", 50.00));
@@ -53,4 +54,16 @@ public class StubbedVoucherCodeDao implements VoucherCodeDao {
                 .map(vc -> vc.getOffer())
                 .findFirst();
     }
+
+    @Override
+    public Set<VoucherCode> getVoucherCodes(String email) {
+
+        return this.voucherCodes.stream()
+                .filter(vc -> vc.getRecipient().getEmail().equals(email))
+                .filter(vc -> vc.getExpiryDate().isBefore(LocalDate.now()))
+                .filter(vc -> !vc.rgetDateRedeemed().isPresent())
+                .collect(Collectors.toSet());
+    }
+
+
 }
