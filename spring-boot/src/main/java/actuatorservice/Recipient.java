@@ -1,6 +1,10 @@
 package actuatorservice;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
+import static org.apache.commons.lang3.builder.ToStringStyle.*;
 
 public class Recipient {
 
@@ -19,6 +23,14 @@ public class Recipient {
 
     public String getEmail() {
         return this.email;
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this, JSON_STYLE)
+                .append("name", name)
+                .append("email", email)
+                .toString();
     }
 
 }
