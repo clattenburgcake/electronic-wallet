@@ -9,6 +9,8 @@ import java.util.Set;
 
 public interface VoucherCodeDao {
 
+    Set<VoucherCode> generateVoucherCode (final String offerName, final LocalDate expirationDate);
+
     Optional<Offer> getOffer (final String offerName, final LocalDate expiryDate, final String email);
 
     Set<VoucherCode> getVoucherCodes (final String email);

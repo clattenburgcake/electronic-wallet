@@ -32,15 +32,25 @@ public class StubbedVoucherCodeDao implements VoucherCodeDao {
         offers.add(new Offer("TEN PERCENT", 10.00));
         offers.add(new Offer("TWENTY PERCENT", 20.00));
 
+    }
+
+    @Override
+    public Set<VoucherCode> generateVoucherCode(String offerName, LocalDate expirationDate) {
+
+        final Set<VoucherCode> generatedVoucherCodes = new HashSet<>();
+
         // Generate Voucher Codes
         for (Recipient recipient : recipients) {
 
-            for (Offer offer : offers) {
-
-                this.voucherCodes.add(new VoucherCode(UUID.randomUUID().toString(), recipient, offer, LocalDate.now()));
-            }
+            offers.stream().
+                    filter(offer -> offer.getName().equals(offerName))
+                    .map(offer -> new VoucherCode(UUID.randomUUID().toString(), recipient, offer, expirationDate))
+                    .forEach(generatedVoucherCodes::add);
         }
 
+        this.voucherCodes.addAll(generatedVoucherCodes);
+
+        return generatedVoucherCodes;
     }
 
     @Override
