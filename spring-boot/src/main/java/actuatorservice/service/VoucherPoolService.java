@@ -1,4 +1,4 @@
-package actuatorservice.dao;
+package actuatorservice.service;
 
 import actuatorservice.Offer;
 import actuatorservice.VoucherCode;
@@ -7,7 +7,7 @@ import java.time.LocalDate;
 import java.util.Optional;
 import java.util.Set;
 
-public interface VoucherCodeDao {
+public interface VoucherPoolService {
 
     Set<VoucherCode> generateVoucherCodes (final String offerName, final LocalDate expirationDate);
 

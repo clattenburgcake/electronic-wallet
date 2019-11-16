@@ -35,11 +35,10 @@ public class StubbedVoucherCodeDao implements VoucherCodeDao {
     }
 
     @Override
-    public Set<VoucherCode> generateVoucherCode(String offerName, LocalDate expirationDate) {
+    public Set<VoucherCode> generateVoucherCodes(final String offerName, final LocalDate expirationDate) {
 
         final Set<VoucherCode> generatedVoucherCodes = new HashSet<>();
 
-        // Generate Voucher Codes
         for (Recipient recipient : recipients) {
 
             offers.stream().
@@ -59,20 +58,28 @@ public class StubbedVoucherCodeDao implements VoucherCodeDao {
         return this.voucherCodes.stream()
                 .filter(vc -> vc.getOffer().getName().equals(offerName))
                 .filter(vc -> vc.getRecipient().getEmail().equals(email))
-                .filter(vc -> vc.getExpiryDate().isBefore(expiryDate))
-                .filter(vc -> !vc.rgetDateRedeemed().isPresent())
+                .filter(vc -> vc.getExpiryDate().isAfter(expiryDate))
+                .filter(vc -> !vc.getDateRedeemed().isPresent())
                 .map(vc -> vc.getOffer())
                 .findFirst();
     }
 
     @Override
-    public Set<VoucherCode> getVoucherCodes(String email) {
+    public Set<VoucherCode> getVoucherCodes(final String email) {
 
         return this.voucherCodes.stream()
                 .filter(vc -> vc.getRecipient().getEmail().equals(email))
-                .filter(vc -> vc.getExpiryDate().isBefore(LocalDate.now()))
-                .filter(vc -> !vc.rgetDateRedeemed().isPresent())
+                .filter(vc -> vc.getExpiryDate().isAfter(LocalDate.now()))
+                .filter(vc -> !vc.getDateRedeemed().isPresent())
                 .collect(Collectors.toSet());
+    }
+
+    @Override
+    public void redeemVoucherCode(final String voucherCode) {
+
+        this.voucherCodes.stream().filter(vc -> vc.getUuid().equals(voucherCode))
+                        .forEach(vc -> vc.redeem());
+
     }
 
 

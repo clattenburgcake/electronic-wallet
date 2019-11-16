@@ -2,22 +2,21 @@ package actuatorservice;
 
 import java.time.LocalDate;
 import java.util.Optional;
-import java.util.UUID;
 
 public class VoucherCode {
 
     private Recipient recipient;
     private Offer offer;
     private LocalDate expiryDate;
-    private String randomCode;
+    private String uuid;
     private LocalDate dateRedeemed;
 
-    public VoucherCode(String randomCode, Recipient recipient, Offer offer, LocalDate expiryDate) {
+    public VoucherCode(String uuid, Recipient recipient, Offer offer, LocalDate expiryDate) {
 
         this.recipient = recipient;
         this.offer = offer;
         this.expiryDate = expiryDate;
-        this.randomCode = randomCode;
+        this.uuid = uuid;
     }
 
     public Recipient getRecipient() {
@@ -32,11 +31,16 @@ public class VoucherCode {
         return this.expiryDate;
     }
 
-    public String getRandomCode() {
-        return this.randomCode;
+    public String getUuid() {
+        return this.uuid;
     }
 
-    public Optional<LocalDate> rgetDateRedeemed() {
+    public Optional<LocalDate> getDateRedeemed() {
         return Optional.ofNullable(dateRedeemed);
+    }
+
+    public void redeem() {
+
+        this.dateRedeemed = LocalDate.now();
     }
 }

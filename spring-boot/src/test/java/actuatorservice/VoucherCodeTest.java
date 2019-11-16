@@ -23,7 +23,7 @@ public class VoucherCodeTest {
 
         final LocalDate novemberFirstTwentyNineteen = LocalDate.of(2019, 11, 1);
 
-        assertThat(VOUCHER_CODE.getRandomCode(), is(randomCode));
+        assertThat(VOUCHER_CODE.getUuid(), is(randomCode));
 
         assertThat(VOUCHER_CODE.getRecipient().getName(), is(recipientName));
         assertThat(VOUCHER_CODE.getRecipient().getEmail(), is(email));
