@@ -1,8 +1,8 @@
 package actuatorservice.dao;
 
-import actuatorservice.Offer;
-import actuatorservice.Recipient;
-import actuatorservice.VoucherCode;
+import actuatorservice.domain.Offer;
+import actuatorservice.domain.Recipient;
+import actuatorservice.domain.VoucherCode;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
@@ -86,9 +86,8 @@ public class StubbedVoucherCodeDao implements VoucherCodeDao {
     public void redeemVoucherCode(final String voucherCode) {
 
         this.voucherCodes.stream().filter(vc -> vc.getUuid().equals(voucherCode))
-                        .forEach(vc -> vc.redeem());
+                .forEach(vc -> vc.redeem());
 
     }
-
 
 }

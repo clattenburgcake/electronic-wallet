@@ -1,6 +1,6 @@
 package actuatorservice.dao;
 
-import actuatorservice.VoucherCode;
+import actuatorservice.domain.VoucherCode;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;

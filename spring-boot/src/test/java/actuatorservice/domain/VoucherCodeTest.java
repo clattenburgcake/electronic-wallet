@@ -1,5 +1,8 @@
-package actuatorservice;
+package actuatorservice.domain;
 
+import actuatorservice.domain.Offer;
+import actuatorservice.domain.Recipient;
+import actuatorservice.domain.VoucherCode;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;

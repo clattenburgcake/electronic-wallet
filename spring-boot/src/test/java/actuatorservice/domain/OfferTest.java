@@ -1,8 +1,9 @@
-package actuatorservice;
+package actuatorservice.domain;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
+import actuatorservice.domain.Offer;
 import org.junit.Test;
 
 public class OfferTest {

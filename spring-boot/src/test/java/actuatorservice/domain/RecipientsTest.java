@@ -1,6 +1,8 @@
-package actuatorservice;
+package actuatorservice.domain;
 
 
+import actuatorservice.domain.Recipient;
+import actuatorservice.domain.Recipients;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
 

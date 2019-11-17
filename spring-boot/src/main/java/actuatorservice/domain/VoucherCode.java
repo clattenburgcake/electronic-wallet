@@ -1,7 +1,8 @@
-package actuatorservice;
+package actuatorservice.domain;
 
+import actuatorservice.domain.Offer;
+import actuatorservice.domain.Recipient;
 import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
 
 import java.time.LocalDate;
 import java.util.Optional;
@@ -45,9 +46,7 @@ public class VoucherCode {
     }
 
     public void redeem() {
-
         this.dateRedeemed = LocalDate.now();
-
     }
 
     @Override

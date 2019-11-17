@@ -1,6 +1,6 @@
 package actuatorservice.controller;
 
-import actuatorservice.VoucherCode;
+import actuatorservice.domain.VoucherCode;
 import actuatorservice.service.VoucherPoolService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

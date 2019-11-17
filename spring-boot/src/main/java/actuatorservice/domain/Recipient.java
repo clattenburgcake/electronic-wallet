@@ -1,8 +1,7 @@
-package actuatorservice;
+package actuatorservice.domain;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
 
 import static org.apache.commons.lang3.builder.ToStringStyle.*;
 

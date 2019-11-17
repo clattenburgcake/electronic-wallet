@@ -1,7 +1,7 @@
 package actuatorservice.service;
 
-import actuatorservice.Offer;
-import actuatorservice.VoucherCode;
+import actuatorservice.domain.Offer;
+import actuatorservice.domain.VoucherCode;
 
 import java.time.LocalDate;
 import java.util.Optional;
