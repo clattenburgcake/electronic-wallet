@@ -1,7 +1,12 @@
 package actuatorservice;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
 import java.time.LocalDate;
 import java.util.Optional;
+
+import static org.apache.commons.lang3.builder.ToStringStyle.*;
 
 public class VoucherCode {
 
@@ -42,5 +47,17 @@ public class VoucherCode {
     public void redeem() {
 
         this.dateRedeemed = LocalDate.now();
+
+    }
+
+    @Override
+    public String toString() {
+
+        return new ToStringBuilder(this, JSON_STYLE)
+                .append("recipient", recipient)
+                .append("offer", offer)
+                .append("expiryDate", expiryDate)
+                .append("uuid", uuid)
+                .toString();
     }
 }

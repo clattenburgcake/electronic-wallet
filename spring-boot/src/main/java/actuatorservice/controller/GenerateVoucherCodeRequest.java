@@ -10,7 +10,8 @@ public class GenerateVoucherCodeRequest {
 
     private final LocalDate expirationDate;
 
-    public GenerateVoucherCodeRequest(@JsonProperty("offerName") final String offerName, @JsonProperty("expirationDate") final LocalDate expirationDate) {
+    public GenerateVoucherCodeRequest(@JsonProperty("offerName") final String offerName,
+                                      @JsonProperty("expirationDate") final LocalDate expirationDate) {
 
         this.offerName = offerName;
         this.expirationDate = expirationDate;
@@ -23,4 +24,5 @@ public class GenerateVoucherCodeRequest {
     public LocalDate getExpirationDate() {
         return expirationDate;
     }
+
 }

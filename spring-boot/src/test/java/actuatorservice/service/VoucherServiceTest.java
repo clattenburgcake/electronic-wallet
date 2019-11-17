@@ -1,4 +1,4 @@
-package service;
+package actuatorservice.service;
 
 import org.junit.Test;
 
