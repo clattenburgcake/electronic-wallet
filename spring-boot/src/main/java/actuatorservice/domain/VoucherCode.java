@@ -1,13 +1,11 @@
 package actuatorservice.domain;
 
-import actuatorservice.domain.Offer;
-import actuatorservice.domain.Recipient;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import java.time.LocalDate;
 import java.util.Optional;
 
-import static org.apache.commons.lang3.builder.ToStringStyle.*;
+import static org.apache.commons.lang3.builder.ToStringStyle.JSON_STYLE;
 
 public class VoucherCode {
 

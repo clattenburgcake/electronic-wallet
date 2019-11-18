@@ -56,10 +56,10 @@ public class StubbedVoucherCodeDao implements VoucherCodeDao {
     public Optional<Offer> getOffer(final String offerName, final LocalDate expiryDate, final String email) {
 
         return this.voucherCodes.stream()
-                .filter(vc -> vc.getOffer().getName().equals(offerName))
-                .filter(vc -> vc.getRecipient().getEmail().equals(email))
-                .filter(vc -> vc.getExpiryDate().isAfter(expiryDate))
-                .filter(vc -> !vc.getDateRedeemed().isPresent())
+                .filter(voucherCode -> voucherCode.getOffer().getName().equals(offerName))
+                .filter(voucherCode -> voucherCode.getRecipient().getEmail().equals(email))
+                .filter(voucherCode -> voucherCode.getExpiryDate().isAfter(expiryDate))
+                .filter(voucherCode -> !voucherCode.getDateRedeemed().isPresent())
                 .map(vc -> vc.getOffer())
                 .findFirst();
     }
@@ -68,9 +68,9 @@ public class StubbedVoucherCodeDao implements VoucherCodeDao {
     public Set<VoucherCode> getValidVoucherCodes(final String email) {
 
         return this.voucherCodes.stream()
-                .filter(vc -> vc.getRecipient().getEmail().equals(email))
-                .filter(vc -> vc.getExpiryDate().isAfter(LocalDate.now()))
-                .filter(vc -> !vc.getDateRedeemed().isPresent())
+                .filter(voucherCode -> voucherCode.getRecipient().getEmail().equals(email))
+                .filter(voucherCode -> voucherCode.getExpiryDate().isAfter(LocalDate.now()))
+                .filter(voucherCode -> !voucherCode.getDateRedeemed().isPresent())
                 .collect(Collectors.toSet());
     }
 
@@ -78,15 +78,15 @@ public class StubbedVoucherCodeDao implements VoucherCodeDao {
     public Set<VoucherCode> getAllVoucherCodes(final String email) {
 
         return this.voucherCodes.stream()
-                .filter(vc -> vc.getRecipient().getEmail().equals(email))
+                .filter(voucherCode -> voucherCode.getRecipient().getEmail().equals(email))
                 .collect(Collectors.toSet());
     }
 
     @Override
-    public void redeemVoucherCode(final String voucherCode) {
+    public void redeemVoucherCode(final String voucherCodeUUID) {
 
-        this.voucherCodes.stream().filter(vc -> vc.getUuid().equals(voucherCode))
-                .forEach(vc -> vc.redeem());
+        this.voucherCodes.stream().filter(voucherCode -> voucherCode.getUuid().equals(voucherCodeUUID))
+                .forEach(voucherCode -> voucherCode.redeem());
 
     }
 

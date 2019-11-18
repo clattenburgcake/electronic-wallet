@@ -1,17 +1,15 @@
 package actuatorservice.domain;
 
-import actuatorservice.domain.Offer;
-import actuatorservice.domain.Offers;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
 
 import java.io.File;
 
 import static java.nio.charset.Charset.defaultCharset;
+import static java.util.Arrays.asList;
 import static org.apache.commons.io.FileUtils.readFileToString;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
-import static java.util.Arrays.*;
 
 
 public class OffersTest {
