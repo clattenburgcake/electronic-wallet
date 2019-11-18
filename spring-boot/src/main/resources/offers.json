@@ -1,0 +1,16 @@
+{
+  "offers": [
+    {
+      "name": "BOGOF",
+      "fixedPercentage": 50
+    },
+    {
+      "name": "TEN PERCENT",
+      "fixedPercentage": 10
+    },
+    {
+      "name": "TWENTY PERCENT",
+      "fixedPercentage": 20
+    }
+  ]
+}
